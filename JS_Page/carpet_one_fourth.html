@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Major Project at CURAJ
+        </title>
+        <link rel="stylesheet" href="ifs_style.css" type="text/css">
+    </head>
+<body text="white">
+        <div class="bg">
+            <div class="navbar">
+                <a href="index.html">Home</a>
+                
+                <div class="dropdown">
+                <button class="dropbtn">IFS
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="ifs4.html">IFS4</a>
+                    <a href="leaf.html">leaf</a>
+                    <a href="tree.html">tree</a>
+                    <a href="ifs5.html">Pentagon</a>
+                    <a href="ifs8.html">Complex Box</a>
+                    <a href="ifs2.html">Dragon Curve</a>
+                    <a href="ifs.html">Sierpinski Gasket</a>
+                    
+                    
+                    
+                    
+                    
+                    
+                </div>                    
+                </div> 
+                <div class="dropdown">
+                    <button class="dropbtn">Sierpinski Carpet
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        
+                       
+                        <a href="carpet.html">Carpet (3x3)</a>
+                        <a href="carpet_one_fourth.html">Carpet (4x4)</a>
+                        <a href="carpet_one_fifth.html">Carpet (5x5)</a>
+                       
+                        
+                    </div>                    
+                    </div> 
+                
+
+                        <div class="dropdown">
+                            <button class="dropbtn">Mandelbrot 
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="mandel.html">Mandelbrot(Z^2 + C)</a>
+                                <a href="mandel_3.html">Mandelbrot(Z^3 + C)</a>
+                                <a href="mandel4.html">Mandelbrot(Z^4 + C)</a>
+                                <a href="mandel5.html">Mandelbrot(Z^5 + C)</a>
+                            </div>                    
+                            </div> 
+                        <a href="contact_us">Contact US</a>
+
+            </div>
+                <br><br>
+                <div style="width: 20%; float:left; height:100%;  margin:10px">
+                    <br>Select any(mouse click) block/s to drop that block/s.
+                  <br><br>
+                        <br>Label of iteration:
+                        <input type="number" step="any"  id="d" value="4"><br><br>
+                        
+                        <input onclick="test()" type="submit" value="submit" id="sub_button">&nbsp;&nbsp;
+                        <button onclick="location.reload();">Cleared</button>
+                        
+                </div>
+                <div style="width: 50%; float:left; height:100%;  margin:10px">
+             <center>
+
+
+   <canvas id="Canvas" width="600" height="600" style="border:1px solid #070a06;"></canvas>
+
+
+    
+   <script>
+
+        var clicks_x = [];
+      var clicks_y = [];
+     var temp1 = 1;
+     var temp2 = 1;
+     var temp3 = 1;
+     var temp4 = 1;
+     var temp5 = 1;
+     var temp6 = 1;
+     var temp7 = 1;
+     var temp8 = 1;
+     var temp9 = 1;
+     var temp10 = 1;
+     var temp11 = 1;
+     var temp12 = 1;
+     var temp13 = 1;
+     var temp14 = 1;
+     var temp15 = 1;
+     var temp16 = 1;
+
+        function carpet(x1,y1,x2,y2,d1,ctx1) {
+
+               var x3 = 3 * x1 / 4.0 + x2 / 4.0;
+               var y3 = 3 * y1 / 4.0 + y2 / 4.0;
+               var x4 = x1 / 2.0 + x2 / 2.0;
+               var y4 = y1 / 2.0 + y2 / 2.0;
+               var x5 = x1 / 4.0 + 3 * x2 / 4.0;
+               var y5 = y1 / 4.0 + 3 * y2 / 4.0;
+
+
+                var d  = d1-1;
+            
+            ctx1.moveTo(x3,y1);
+             ctx1.lineTo(x3,y2);
+            
+             ctx1.moveTo(x4,y1);
+             ctx1.lineTo(x4,y2);
+
+             ctx1.moveTo(x5,y1);
+             ctx1.lineTo(x5,y2);
+
+            ctx1.moveTo(x1,y3);
+             ctx1.lineTo(x2,y3);
+
+            ctx1.moveTo(x1,y4);
+             ctx1.lineTo(x2,y4);
+
+             ctx1.moveTo(x1,y5);
+             ctx1.lineTo(x2,y5);
+
+   
+            ctx1.strokeStyle = '#14b4d2';
+            ctx1.lineWidth = 1;
+            ctx1.stroke();
+        
+       
+
+                         
+            if (d>0) {
+                if(temp1==1)
+                {
+                    carpet(x1,y1,x3,y3,d,ctx1);
+                }
+                if(temp2==1)
+                {
+                    carpet(x3,y1,x4,y3,d,ctx1);
+
+                }
+                if(temp3==1)
+                {
+                    carpet(x4,y1,x5,y3,d,ctx1);
+                }
+                if(temp4==1)
+                {
+                    carpet(x5,y1,x2,y3,d,ctx1);
+                }
+                if(temp5==1)
+                {   
+                    carpet(x1,y3,x3,y4,d,ctx1);
+                }
+                if(temp6==1)
+                {    
+                    carpet(x3,y3,x4,y4,d,ctx1);
+                }
+                if(temp7==1)
+                {
+                    carpet(x4,y3,x5,y4,d,ctx1);
+                }
+                if(temp8==1)
+                {
+                    carpet(x5,y3,x2,y4,d,ctx1);
+                }
+                if(temp9==1)
+                {
+                    carpet(x1,y4,x3,y5,d,ctx1);
+                }
+                if(temp10==1)
+                {
+                    carpet(x3,y4,x4,y5,d,ctx1);
+                } 
+                if(temp11==1)
+                {   
+                    carpet(x4,y4,x5,y5,d,ctx1);
+                }
+                if(temp12==1)
+                {
+                    carpet(x5,y4,x2,y5,d,ctx1);
+                }
+                if(temp13==1)
+                {
+                    carpet(x1,y5,x3,y2,d,ctx1);
+                }
+                if(temp14==1)
+                {
+                    carpet(x3,y5,x4,y2,d,ctx1);
+                }
+                if(temp15==1)
+                {
+                    carpet(x4,y5,x5,y2,d,ctx1);
+                }
+                if(temp16==1)
+                {
+                    carpet(x5,y5,x2,y2,d,ctx1);
+                }    
+
+
+        
+             } 
+
+
+        }
+
+        function test(){
+      var a = 0 ;
+      var b = 600 ;
+      var c = 600 ;
+      var p = 0 ;
+      
+      var g = parseFloat(document.getElementById("d").value);
+      
+
+         var ctx = document.getElementById("Canvas");
+         var context = ctx.getContext("2d");
+         context.moveTo(a,b);
+         context.lineTo(c,b);
+          
+         context.lineTo(c,p);
+         context.lineTo(a,p);  
+        
+         context.lineTo(a,b);
+        
+     
+        context.strokeStyle = 'blue';
+        context.lineWidth = 1;
+        context.stroke();
+       
+         carpet(a,b,c,p,g,context);
+
+
+        }
+            
+         var ctx = document.getElementById("Canvas");
+         var context = ctx.getContext("2d");
+         context.rect(0,0,600,600);
+        
+        context.strokeStyle = 'blue';
+        context.lineWidth = 1;
+        context.stroke();
+        carpet(0,600,600,0,1,context);
+
+        
+  function writeMessage(canvas, message, context) {
+   
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.font = '18pt Calibri';
+    context.fillStyle = 'black';
+    context.fillText(message, 10, 25);
+  }
+  function getMousePos(canvas, evt) {
+    var rect = canvas.getBoundingClientRect();
+    return {
+      x: evt.clientX - rect.left,
+      y: evt.clientY - rect.top
+    };
+  }
+  var canvas = document.getElementById('Canvas');
+  var context = canvas.getContext('2d');
+  
+  canvas.addEventListener('click', function(evt) {
+    var mousePos = getMousePos(canvas, evt);
+    var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+   // writeMessage(canvas, message, context);
+   //window.alert(message)
+   clicks_x.push(mousePos.x);
+   clicks_y.push(mousePos.y);
+
+    for(i=0;i<clicks_x.length;i++)
+    {
+        
+       
+        if (clicks_x[i] > 0 && clicks_x[i] < 150 && clicks_y[i] <600 && clicks_y[i]>450)
+        {
+            temp1=2;
+    
+        }            
+        if (clicks_x[i] > 150 && clicks_x[i] <300 && clicks_y[i] >450 && clicks_y[i]<600)
+        {
+            temp2=2;
+            
+        }
+        if (clicks_x[i] > 300 && clicks_x[i] < 450 && clicks_y[i] <600 && clicks_y[i]>450)
+        {
+            temp3=2;
+    
+        }       
+        
+        if (clicks_x[i] > 450 && clicks_x[i] < 600 && clicks_y[i] >450 && clicks_y[i]<600)
+        {
+            temp4=2;
+            
+        }
+        if (clicks_x[i] > 0 && clicks_x[i] < 150 && clicks_y[i] <450 && clicks_y[i]>300)
+        {
+            temp5=2;
+    
+        }            
+        if (clicks_x[i] > 150 && clicks_x[i] <300 && clicks_y[i] <450 && clicks_y[i]>300)
+        {
+            temp6=2;
+            
+        }
+        if (clicks_x[i] > 300 && clicks_x[i] < 450 && clicks_y[i] <450 && clicks_y[i]>300)
+        {
+            temp7=2;
+    
+        }       
+        
+        if (clicks_x[i] > 450 && clicks_x[i] < 600 && clicks_y[i] <450 && clicks_y[i]>300)
+        {
+            temp8=2;
+            
+        }
+        if (clicks_x[i] > 0 && clicks_x[i] < 150 && clicks_y[i] <300 && clicks_y[i]>150)
+        {
+            temp9=2;
+    
+        }            
+        if (clicks_x[i] > 150 && clicks_x[i] <300 && clicks_y[i] <300 && clicks_y[i]>150)
+        {
+            temp10=2;
+            
+        }
+        if (clicks_x[i] > 300 && clicks_x[i] < 450 && clicks_y[i] <300 && clicks_y[i]>150)
+        {
+            temp11=2;
+    
+        }       
+        
+        if (clicks_x[i] > 450 && clicks_x[i] < 600 && clicks_y[i] <300 && clicks_y[i]>150)
+        {
+            temp12=2;
+            
+        }
+        if (clicks_x[i] > 0 && clicks_x[i] < 150 && clicks_y[i] <150 && clicks_y[i]> 0)
+        {
+            temp13=2;
+    
+        }            
+        if (clicks_x[i] > 150 && clicks_x[i] <300 && clicks_y[i] <150 && clicks_y[i]>0)
+        {
+            temp14=2;
+            
+        }
+        if (clicks_x[i] > 300 && clicks_x[i] < 450 && clicks_y[i] <150 && clicks_y[i]> 0)
+        {
+            temp15=2;
+    
+        }       
+        
+        if (clicks_x[i] > 450 && clicks_x[i] < 600 && clicks_y[i] <150 && clicks_y[i]> 0)
+        {
+            temp16=2;
+            
+        }
+        
+   }   
+
+         
+    
+
+    }, false);
+         </script>
+
+</center>
+</div>
+</body>
+</html>
+
+

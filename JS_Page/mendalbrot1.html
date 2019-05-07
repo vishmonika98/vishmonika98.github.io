@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Major Project at CURAJ
+        </title>
+        <link rel="stylesheet" href="style.css" type="text/css">
+    </head>
+<body text="white">
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        
+        <div class="dropdown">
+        <button class="dropbtn">IFS
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="ifs4.html">IFS4</a>
+            <a href="leaf.html">leaf</a>
+            <a href="tree.html">tree</a>
+            <a href="ifs5.html">Pentagon</a>
+            <a href="ifs8.html">Complex Box</a>
+            <a href="ifs2.html">Dragon Curve</a>
+            <a href="ifs.html">Sierpinski Gasket</a>
+            
+            
+            
+            
+            
+            
+        </div>                    
+        </div> 
+        <div class="dropdown">
+            <button class="dropbtn">Sierpinski Carpet
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                
+               
+                <a href="carpet.html">Carpet (3x3)</a>
+                <a href="carpet_one_fourth.html">Carpet (4x4)</a>
+                <a href="carpet_one_fifth.html">Carpet (5x5)</a>
+               
+                
+            </div>                    
+            </div> 
+        
+
+                <div class="dropdown">
+                    <button class="dropbtn">Mandelbrot 
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="mandel.html">Mandelbrot(Z^2 + C)</a>
+                        <a href="mandel_3.html">Mandelbrot(Z^3 + C)</a>
+                        <a href="mandel4.html">Mandelbrot(Z^4 + C)</a>
+                        <a href="mandel5.html">Mandelbrot(Z^5 + C)</a>
+                    </div>                    
+                    </div> 
+                <a href="contact_us">Contact US</a>
+
+    </div>
+
+                <canvas id="Canvas" width="600" height="600" style="border:1px solid #61b43b;"></canvas>
+        <script>
+
+            (function() {
+                
+                var myCanvas = document.getElementById("Canvas");
+                
+                var ctx = myCanvas.getContext("2d");
+
+                function mandelBrotSet(x,y) {
+                        var real = x;
+                        var imaginary = y;
+                        var ratio = 1;
+                        var maxIterations = 100;
+                        for(var i = 0; i < maxIterations; i++) {
+                            var temp_real = real * real - imaginary * imaginary + x;
+                            var temp_imaginary = 2 * real * imaginary + y;
+
+                            real = (ratio * temp_real) + ((1-ratio) * real);
+                            imaginary = (ratio * temp_imaginary) + ((1-ratio) * imaginary);
+
+                            // Return a number as a percentage
+                            if(real * imaginary > 5) 
+                                return (i / maxIterations * 100);
+                        }
+                        return 0;   // Return zero if in set        
+                    }          
+
+                    var magnificationFactor = 50;
+                    var pan_X = 10;
+                    var pan_Y = 6;
+                    for(var x=0; x < myCanvas.width; x++) {
+                    for(var y=0; y < myCanvas.height; y++) {
+                        var belongsToSet = 
+                                mandelBrotSet(x/magnificationFactor - pan_X, 
+                                                            y/magnificationFactor - pan_Y);
+                            if(belongsToSet == 0) {
+                                ctx.fillStyle = '#eec6ba';
+                                ctx.fillRect(x,y, 1,1); 
+                            } else {
+                                ctx.fillStyle = 'hsl(0, 100%, ' + belongsToSet + '%)';
+                                ctx.fillRect(x,y, 5,1); // Draw a colorful pixel
+                            }              
+                    } 
+                    }
+
+
+
+            })();
+
+        </script>
+
+</div>
+    </body>
+</html>

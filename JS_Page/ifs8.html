@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Major Project at CURAJ
+        </title>
+        <link rel="stylesheet" href="ifs_style.css" type="text/css">
+    </head>
+<body text="white">
+        <div class="bg">
+            <div class="navbar">
+                <a href="index.html">Home</a>
+                
+                <div class="dropdown">
+                <button class="dropbtn">IFS
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="ifs4.html">IFS4</a>
+                    <a href="leaf.html">leaf</a>
+                    <a href="tree.html">tree</a>
+                    <a href="ifs5.html">Pentagon</a>
+                    <a href="ifs8.html">Complex Box</a>
+                    <a href="ifs2.html">Dragon Curve</a>
+                    <a href="ifs.html">Sierpinski Gasket</a>
+                    
+                    
+                    
+                    
+                    
+                    
+                </div>                    
+                </div> 
+                <div class="dropdown">
+                    <button class="dropbtn">Sierpinski Carpet
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        
+                       
+                        <a href="carpet.html">Carpet (3x3)</a>
+                        <a href="carpet_one_fourth.html">Carpet (4x4)</a>
+                        <a href="carpet_one_fifth.html">Carpet (5x5)</a>
+                       
+                        
+                    </div>                    
+                    </div> 
+                
+
+                        <div class="dropdown">
+                            <button class="dropbtn">Mandelbrot 
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="mandel.html">Mandelbrot(Z^2 + C)</a>
+                                <a href="mandel_3.html">Mandelbrot(Z^3 + C)</a>
+                                <a href="mandel4.html">Mandelbrot(Z^4 + C)</a>
+                                <a href="mandel5.html">Mandelbrot(Z^5 + C)</a>
+                            </div>                    
+                            </div> 
+                        <a href="contact_us">Contact US</a>
+
+            </div>
+                <br><br>
+                <div style="width: 20%; float:left; height:100%;  margin:10px">
+                    <br><br><br>a
+                        <input type="number" step="any"  id="a1" value="0.250" style=width:50px>&nbsp;&nbsp;
+                        b
+                        <input type="number" step="any"  id="b1" value="0.0"style=width:50px>&nbsp;&nbsp;
+                        c
+                        <input type="number" step="any"  id="c1" value="0.0"style=width:50px>&nbsp;&nbsp;
+                        <br><br>d
+                        <input type="number" step="any"  id="d1" value="0.250"style=width:50px>&nbsp;&nbsp;
+                        e
+                        <input type="number" step="any"  id="e1" value="0.0"style=width:50px>&nbsp;&nbsp;
+                        f
+                        <input type="number" step="any"  id="f1" value="0.750"style=width:50px>&nbsp;&nbsp;
+                        <br>
+                        
+
+                        <br><br><br>a
+                        <input type="number" step="any"  id="a2" value="0.250" style=width:50px>&nbsp;&nbsp;
+                        b
+                        <input type="number" step="any"  id="b2" value="0.0"style=width:50px>&nbsp;&nbsp;
+                        c
+                        <input type="number" step="any"  id="c2" value="0.0"style=width:50px>&nbsp;&nbsp;
+                        <br><br>d
+                        <input type="number" step="any"  id="d2" value="0.250"style=width:50px>&nbsp;&nbsp;
+                        e
+                        <input type="number" step="any"  id="e2" value="0.750"style=width:50px>&nbsp;&nbsp;
+                        f
+                        <input type="number" step="any"  id="f2" value="0.750"style=width:50px>&nbsp;&nbsp;
+                        <br>
+
+
+                        <br><br><br>a
+                        <input type="number" step="any"  id="a3" value="0.250" style=width:50px>&nbsp;&nbsp;
+                        b
+                        <input type="number" step="any"  id="b3" value="0.0"style=width:50px>&nbsp;&nbsp;
+                        c
+                        <input type="number" step="any"  id="c3" value="0.0"style=width:50px>&nbsp;&nbsp;
+                        <br><br>d
+                        <input type="number" step="any"  id="d3" value="0.250"style=width:50px>&nbsp;&nbsp;
+                        e
+                        <input type="number" step="any"  id="e3" value="0.250"style=width:50px>&nbsp;&nbsp;
+                        f
+                        <input type="number" step="any"  id="f3" value="0.500"style=width:50px>&nbsp;&nbsp;
+                        <br><br><br>&nbsp;&nbsp;
+
+
+                        <br>a
+                        <input type="number" step="any"  id="a4" value="0.250" style=width:50px>&nbsp;&nbsp;
+                        b
+                        <input type="number" step="any"  id="b4" value="0.0"style=width:50px>&nbsp;&nbsp;
+                        c
+                        <input type="number" step="any"  id="c4" value="0.0"style=width:50px>&nbsp;&nbsp;
+                        <br><br>d
+                        <input type="number" step="any"  id="d4" value="0.250"style=width:50px>&nbsp;&nbsp;
+                        e
+                        <input type="number" step="any"  id="e4" value="0.500"style=width:50px>&nbsp;&nbsp;
+                        f
+                        <input type="number" step="any"  id="f4" value="0.500"style=width:50px>&nbsp;&nbsp;
+                        <br><br><br>&nbsp;&nbsp;
+                        <br>Enter Value Beta (0-1) :
+                        <input type="number" step="any"  id="num" value="1"><br><br>
+
+                        </div>
+                        <div style="width: 50%; float:left; height:100%;  margin:10px">
+                
+                            <center>
+                            <canvas id="canvas"  width="600" height="600"  style="border:1px solid"></canvas>
+                            
+                    </center>
+                </div>
+
+
+                        <div style="width: 20%; float:left; height:100%;  margin:10px">
+                        <br><br><br>a
+                        <input type="number" step="any"  id="a5" value="0.250" style=width:50px>&nbsp;&nbsp;
+                        b
+                        <input type="number" step="any"  id="b5" value="0.0"style=width:50px>&nbsp;&nbsp;
+                        c
+                        <input type="number" step="any"  id="c5" value="0.0"style=width:50px>&nbsp;&nbsp;
+                        <br><br>d
+                        <input type="number" step="any"  id="d5" value="0.250"style=width:50px>&nbsp;&nbsp;
+                        e
+                        <input type="number" step="any"  id="e5" value="0.250"style=width:50px>&nbsp;&nbsp;
+                        f
+                        <input type="number" step="any"  id="f5" value="0.250"style=width:50px>&nbsp;&nbsp;
+                        <br>
+
+                        <br><br><br>a
+                        <input type="number" step="any"  id="a6" value="0.250" style=width:50px>&nbsp;&nbsp;
+                        b
+                        <input type="number" step="any"  id="b6" value="0.0"style=width:50px>&nbsp;&nbsp;
+                        c
+                        <input type="number" step="any"  id="c6" value="0.0"style=width:50px>&nbsp;&nbsp;
+                        <br><br>d
+                        <input type="number" step="any"  id="d6" value="0.250"style=width:50px>&nbsp;&nbsp;
+                        e
+                        <input type="number" step="any"  id="e6" value="0.500"style=width:50px>&nbsp;&nbsp;
+                        f
+                        <input type="number" step="any"  id="f6" value="0.250"style=width:50px>&nbsp;&nbsp;
+                        <br>
+
+
+                        <br><br><br>a
+                        <input type="number" step="any"  id="a7" value="0.250" style=width:50px>&nbsp;&nbsp;
+                        b
+                        <input type="number" step="any"  id="b7" value="0.0"style=width:50px>&nbsp;&nbsp;
+                        c
+                        <input type="number" step="any"  id="c7" value="0.0"style=width:50px>&nbsp;&nbsp;
+                        <br><br>d
+                        <input type="number" step="any"  id="d7" value="0.250"style=width:50px>&nbsp;&nbsp;
+                        e
+                        <input type="number" step="any"  id="e7" value="0.0"style=width:50px>&nbsp;&nbsp;
+                        f
+                        <input type="number" step="any"  id="f7" value="0.0"style=width:50px>&nbsp;&nbsp;
+                        <br>
+
+                        <br><br><br>a
+                        <input type="number" step="any"  id="a8" value="0.250" style=width:50px>&nbsp;&nbsp;
+                        b
+                        <input type="number" step="any"  id="b8" value="0.0"style=width:50px>&nbsp;&nbsp;
+                        c
+                        <input type="number" step="any"  id="c8" value="0.0"style=width:50px>&nbsp;&nbsp;
+                        <br><br>d
+                        <input type="number" step="any"  id="d8" value="0.250"style=width:50px>&nbsp;&nbsp;
+                        e
+                        <input type="number" step="any"  id="e8" value="0.750"style=width:50px>&nbsp;&nbsp;
+                        f
+                        <input type="number" step="any"  id="f8" value="0.0"style=width:50px>&nbsp;&nbsp;
+                        <br>
+                        <br>
+                        <br>
+                        
+
+                        <input onclick="ifs()" type="submit" value="submit" id="sub_button">&nbsp;&nbsp;
+                        &nbsp;&nbsp;
+                        
+                        <button onclick="location.reload();">Cleared</button>
+                </div>
+                
+
+                <script>
+    
+                     function ifs() {
+                       
+                        var canvas = document.getElementById("canvas"),
+                            context = canvas.getContext("2d"),
+                            width = canvas.width; // = window.innerWidth,
+                            height = canvas.height;// = window.innerHeight;
+                    var rules = [{
+                            a: parseFloat(String(document.getElementById("a1").value)), //0.5,
+                            b: parseFloat(String(document.getElementById("b1").value)), //0.0,
+                            c: parseFloat(String(document.getElementById("c1").value)),//0.0,
+                            d: parseFloat(String(document.getElementById("d1").value)),//0.5,
+                            tx: parseFloat(String(document.getElementById("e1").value)), //0
+                            ty: parseFloat(String(document.getElementById("f1").value)),//0.0,
+                            weight: 0.125
+                        },
+                
+                        {
+                            a: parseFloat(String(document.getElementById("a2").value)), //0.5,
+                            b: parseFloat(String(document.getElementById("b2").value)), //0.0,
+                            c: parseFloat(String(document.getElementById("c2").value)),//0.0,
+                            d: parseFloat(String(document.getElementById("d2").value)),//0.5,
+                            tx: parseFloat(String(document.getElementById("e2").value)), //0.0,
+                            ty: parseFloat(String(document.getElementById("f2").value)),//0.0,
+                            weight: 0.125
+                        },
+                
+                        {
+                            a: parseFloat(String(document.getElementById("a3").value)), //0.5,
+                            b: parseFloat(String(document.getElementById("b3").value)), //0.0,
+                            c: parseFloat(String(document.getElementById("c3").value)),//0.0
+                            d: parseFloat(String(document.getElementById("d3").value)),//0.5,
+                            tx: parseFloat(String(document.getElementById("e3").value)), //0.0,
+                            ty: parseFloat(String(document.getElementById("f3").value)),//0.0,
+                            weight: 0.125
+                        },
+
+                        {
+                            a: parseFloat(String(document.getElementById("a4").value)), //0.5,
+                            b: parseFloat(String(document.getElementById("b4").value)), //0.0,
+                            c: parseFloat(String(document.getElementById("c4").value)),//0.0
+                            d: parseFloat(String(document.getElementById("d4").value)),//0.5,
+                            tx: parseFloat(String(document.getElementById("e4").value)), //0.0,
+                            ty: parseFloat(String(document.getElementById("f4").value)),//0.0,
+                            weight: 0.125
+                        },
+
+                         {
+                            a: parseFloat(String(document.getElementById("a5").value)), //0.5,
+                            b: parseFloat(String(document.getElementById("b5").value)), //0.0,
+                            c: parseFloat(String(document.getElementById("c5").value)),//0.0
+                            d: parseFloat(String(document.getElementById("d5").value)),//0.5,
+                            tx: parseFloat(String(document.getElementById("e5").value)), //0.0,
+                            ty: parseFloat(String(document.getElementById("f5").value)),//0.0,
+                            weight: 0.125
+                        },
+
+                        {
+                            a: parseFloat(String(document.getElementById("a6").value)), //0.5,
+                            b: parseFloat(String(document.getElementById("b6").value)), //0.0,
+                            c: parseFloat(String(document.getElementById("c6").value)),//0.0
+                            d: parseFloat(String(document.getElementById("d6").value)),//0.5,
+                            tx: parseFloat(String(document.getElementById("e6").value)), //0.0,
+                            ty: parseFloat(String(document.getElementById("f6").value)),//0.0,
+                            weight: 0.125
+                        },
+
+                         {
+                            a: parseFloat(String(document.getElementById("a7").value)), //0.5,
+                            b: parseFloat(String(document.getElementById("b7").value)), //0.0,
+                            c: parseFloat(String(document.getElementById("c7").value)),//0.0
+                            d: parseFloat(String(document.getElementById("d7").value)),//0.5,
+                            tx: parseFloat(String(document.getElementById("e7").value)), //0.0,
+                            ty: parseFloat(String(document.getElementById("f7").value)),//0.0,
+                            weight: 0.125
+                        },
+
+                        {
+                            a: parseFloat(String(document.getElementById("a8").value)), //0.5,
+                            b: parseFloat(String(document.getElementById("b8").value)), //0.0,
+                            c: parseFloat(String(document.getElementById("c8").value)),//0.0
+                            d: parseFloat(String(document.getElementById("d8").value)),//0.5,
+                            tx: parseFloat(String(document.getElementById("e8").value)), //0.0,
+                            ty: parseFloat(String(document.getElementById("f8").value)),//0.0,
+                            weight: 0.125
+                        }
+
+                        ];
+                
+                        var x = Math.random();
+                        var y = Math.random();
+                        //alert(x);
+                        context.translate(0, height);
+                
+                        
+                        function getRule() {
+                            var rand = Math.random();
+                            
+                            for(var i = 0; i< rules.length; i++) {
+                                var rule = rules[i];
+                                
+                                if(rand < rule.weight) {
+                                    return rule;
+                                }
+                                rand = rand - rule.weight;
+                            }
+                        }
+                
+                        function plot(x, y) {
+                            context.fillStyle = "#FF99CC";
+                            context.fillRect(x * 600, - y * 600 , 1, 1);
+                        }
+                
+                
+                
+                        function iterate() {
+                            for (var i = 0; i <10000; i++) {
+                                var rule = getRule();
+                                var beta = document.getElementById("num").value;
+                                x1 = x * rule.a + y * rule.b + rule.tx;
+                                y1 = x * rule.c + y * rule.d + rule.ty;
+                                x = (beta * x1) + ((1-beta) * x) ;
+                                y = (beta * y1) + ((1-beta) * y) ;
+                
+                                plot(x, y);
+                            }
+                            
+                            requestAnimationFrame(iterate);
+                        }
+                       iterate();
+                    }
+    
+                    </script>
+
+
+</body>
+</html>

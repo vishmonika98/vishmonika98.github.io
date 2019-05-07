@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Major Project at CURAJ
+        </title>
+        <link rel="stylesheet" href="ifs_style.css" type="text/css">
+    </head>
+<body text="white">
+        <div class="bg">
+            <div class="navbar">
+                <a href="index.html">Home</a>
+                
+                <div class="dropdown">
+                <button class="dropbtn">IFS
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="ifs4.html">IFS4</a>
+                    <a href="leaf.html">leaf</a>
+                    <a href="tree.html">tree</a>
+                    <a href="ifs5.html">Pentagon</a>
+                    <a href="ifs8.html">Complex Box</a>
+                    <a href="ifs2.html">Dragon Curve</a>
+                    <a href="ifs.html">Sierpinski Gasket</a>
+                    
+                    
+                    
+                    
+                    
+                    
+                </div>                    
+                </div> 
+                <div class="dropdown">
+                    <button class="dropbtn">Sierpinski Carpet
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        
+                       
+                        <a href="carpet.html">Carpet (3x3)</a>
+                        <a href="carpet_one_fourth.html">Carpet (4x4)</a>
+                        <a href="carpet_one_fifth.html">Carpet (5x5)</a>
+                       
+                        
+                    </div>                    
+                    </div> 
+                
+
+                        <div class="dropdown">
+                            <button class="dropbtn">Mandelbrot 
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="mandel.html">Mandelbrot(Z^2 + C)</a>
+                                <a href="mandel_3.html">Mandelbrot(Z^3 + C)</a>
+                                <a href="mandel4.html">Mandelbrot(Z^4 + C)</a>
+                                <a href="mandel5.html">Mandelbrot(Z^5 + C)</a>
+                            </div>                    
+                            </div> 
+                        <a href="contact_us">Contact US</a>
+
+            </div>
+
+                <br><br>
+                <div style="width: 20%; float:left; height:100%;  margin:10px">   
+                <br>x_coordinate of first point:
+    <input type="number" step="any" id="A1" value="50"><br><br>
+y_coordinate of first point:
+    <input type="number" step="any" id="Ay" value="500"><br>
+<br>x_coordinate of second point:
+     <input type="number" step="any"  id="B1" value="550"><br><br>
+y_coordinate of second point:
+    <input type="number" step="any" id="B2" value="500"><br>
+<br>x_coordinate of third point:
+    <input type="number" step="any"  id="Cx" value="300"><br><br>
+y_coordinate of third point:
+    <input type="number" step="0.01" id="C2" value="30"><br>
+<br>Label of iteration:
+    <input type="number" step="any" align = "left" id="d" value="6" ><br><br>
+
+<input onclick="test()" type="submit" value="submit" id="sub_button">&nbsp;&nbsp;
+<button onclick="location.reload();">Cleared</button>
+            </div>    
+            <center>
+                <div style="width: 50%; float:left; height:100%;  margin:10px">    
+   <canvas id="sierpinskiCanvas" width="600" height="550" style="border:1px solid #080808;"></canvas>
+        <script>
+                function sierpinski(Ax,Ay,Bx,By,Cx,Cy,d,ctx1) {
+                    
+                   
+             if(d>0) {
+                var pointAx = (Bx + Cx) / 2;
+        var pointAy = (By + Cy) / 2;
+ 
+        var pointBx = (Ax + Cx) / 2;
+        var pointBy = (Ay + Cy) / 2;
+ 
+        var pointCx = (Ax + Bx) / 2;
+        var pointCy = (Ay + By) / 2;
+ 
+        var d2 = d-1;
+        sierpinski(Ax,Ay,pointBx,pointBy,pointCx,pointCy,d2,ctx1);
+        sierpinski(pointCx,pointCy,pointAx,pointAy,Bx,By,d2,ctx1);
+        sierpinski(pointBx,pointBy,pointAx,pointAy,Cx,Cy,d2,ctx1);
+                  }
+             else {
+                
+               
+
+                 ctx1.moveTo(Ax,Ay);
+                 ctx1.lineTo(Bx,By);
+                 ctx1.lineTo(Cx,Cy);
+                 ctx1.lineTo(Ax,Ay);
+                 
+             }
+             }
+             
+         function test(){
+          var a = parseFloat(document.getElementById("A1").value);
+          var b = parseFloat(document.getElementById("Ay").value);
+          var c = parseFloat(document.getElementById("B1").value);
+          var p = parseFloat(document.getElementById("B2").value);
+          var e = parseFloat(document.getElementById("Cx").value);
+          var f = parseFloat(document.getElementById("C2").value);
+          var g = parseFloat(document.getElementById("d").value);
+          
+
+             var ctx = document.getElementById("sierpinskiCanvas");
+             var context = ctx.getContext("2d");
+             
+
+             sierpinski(a,b,c,p,e,f,g,context);
+           
+             context.fillStyle = 'white';
+             context.fill();
+             context.strokeStyle = 'blue';
+             context.lineWidth = 1;
+             context.stroke();
+        }
+             </script>
+    
+       
+            </center>
+        </div>    
+ </div>                   
+</body>
+</html>

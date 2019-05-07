@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Major Project at CURAJ
+        </title>
+        <link rel="stylesheet" href="ifs_style.css" type="text/css">
+    </head>
+<body text="white">
+        <div class="bg">
+            <div class="navbar">
+                <a href="index.html">Home</a>
+                
+                <div class="dropdown">
+                <button class="dropbtn">IFS
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="ifs4.html">IFS4</a>
+                    <a href="leaf.html">leaf</a>
+                    <a href="tree.html">tree</a>
+                    <a href="ifs5.html">Pentagon</a>
+                    <a href="ifs8.html">Complex Box</a>
+                    <a href="ifs2.html">Dragon Curve</a>
+                    <a href="ifs.html">Sierpinski Gasket</a>
+                    
+                    
+                    
+                    
+                    
+                    
+                </div>                    
+                </div> 
+                <div class="dropdown">
+                    <button class="dropbtn">Sierpinski Carpet
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        
+                       
+                        <a href="carpet.html">Carpet (3x3)</a>
+                        <a href="carpet_one_fourth.html">Carpet (4x4)</a>
+                        <a href="carpet_one_fifth.html">Carpet (5x5)</a>
+                       
+                        
+                    </div>                    
+                    </div> 
+                
+
+                        <div class="dropdown">
+                            <button class="dropbtn">Mandelbrot 
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="mandel.html">Mandelbrot(Z^2 + C)</a>
+                                <a href="mandel_3.html">Mandelbrot(Z^3 + C)</a>
+                                <a href="mandel4.html">Mandelbrot(Z^4 + C)</a>
+                                <a href="mandel5.html">Mandelbrot(Z^5 + C)</a>
+                            </div>                    
+                            </div> 
+                        <a href="contact_us">Contact US</a>
+
+            </div>
+                <br><br>
+                <div style="width: 20%; float:left; height:100%;  margin:10px">
+                        <br>Enter Value Beta (0-1) :
+                        <input type="number" step="any"  id="num" value="1"><br><br>
+                        <br>Translation Factor X :
+                        <br><input type="number" step="any"  id="x" value="1.6"><br><br>
+                        <br>Translation Factor Y :
+                        <br><input type="number" step="any"  id="y" value="1.2"><br><br>
+                        <br>No. of iterations :
+                        <input type="number" step="any"  id="iter" value="100"><br><br>
+                        <br>Magnification Factor :
+                        <input type="number" step="any"  id="magni" value="250"><br><br>
+                        <input onclick="mendal()" type="submit" value="submit" id="sub_button">&nbsp;&nbsp;
+                        <button onclick="location.reload();">Cleared</button>
+                </div>
+                <div style="width: 50%; float:left; height:100%;  margin:10px">
+                    <center>
+                <canvas id="Canvas" width="800" height="600" style="border:1px solid #070a06;"></canvas>
+        
+        
+
+                <script>
+
+
+            function mendal() {
+                
+                var myCanvas = document.getElementById("Canvas");
+                
+                var ctx = myCanvas.getContext("2d");
+
+                function mandelBrotSet(x,y) {
+                        var real = x;
+                        var imaginary = y;
+                        
+                        var ratio = document.getElementById("num").value;
+                        
+                        var maxIterations = document.getElementById("iter").value;
+                        
+                        for(var i = 0; i < maxIterations; i++) {
+
+                        
+                            var temp_real = Math.pow(real ,4) - ( 6 * Math.pow(real ,2) * Math.pow(imaginary,2)) + Math.pow(imaginary,4) + x;
+                            var temp_imaginary = (4 * Math.pow(real,3) * imaginary) - (4 * real *Math.pow(imaginary,3)) + y;
+
+                           real = (ratio * temp_real) + ((1-ratio) * real);
+                            imaginary = (ratio * temp_imaginary) + ((1-ratio) * imaginary);
+
+                            // Return a number as a percentage
+                            if(real * imaginary > 5) 
+                                return (i / maxIterations * 100);
+                        }
+                        return 0;   // Return zero if in set        
+                    }          
+
+                    var magnify = document.getElementById("magni").value;
+                    var X = document.getElementById("x").value;
+                    var Y = document.getElementById("y").value;
+                    for(var x=0; x < myCanvas.width; x++) {
+                    for(var y=0; y < myCanvas.height; y++) {
+                        var belongsToSet = 
+                                mandelBrotSet(x/magnify - X, 
+                                                            y/magnify - Y);
+                            if(belongsToSet == 0) {
+                                ctx.fillStyle = '#FF99CC';
+                                ctx.fillRect(x,y, 1,1); 
+                            } else {
+                                ctx.fillStyle = 'hsl(1, 100%, ' + belongsToSet + '%)';
+                                ctx.fillRect(x,y, 5,1); // Draw a colorful pixel
+                            }              
+                    } 
+                    }
+
+
+
+            }
+
+        </script>
+        </center>
+</div>
+
+    </body>
+</html>

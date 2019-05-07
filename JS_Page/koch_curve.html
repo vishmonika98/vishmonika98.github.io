@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Major Project at CURAJ
+        </title>
+        <link rel="stylesheet" href="Lstyle.css" type="text/css">
+    </head>
+<body text = "white">
+
+    <div class="bg">
+        <div class="navbar">
+            <a href="index.html">Home</a>
+            
+            <div class="dropdown">
+            <button class="dropbtn">IFS
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="ifs4.html">IFS4</a>
+                <a href="leaf.html">leaf</a>
+                <a href="tree.html">tree</a>
+                <a href="ifs5.html">Pentagon</a>
+                <a href="ifs8.html">Complex Box</a>
+                <a href="ifs2.html">Dragon Curve</a>
+                <a href="ifs.html">Sierpinski Gasket</a>
+                
+                
+                
+                
+                
+                
+            </div>                    
+            </div> 
+            <div class="dropdown">
+                <button class="dropbtn">Sierpinski Carpet
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    
+                   
+                    <a href="carpet.html">Carpet (3x3)</a>
+                    <a href="carpet_one_fourth.html">Carpet (4x4)</a>
+                    <a href="carpet_one_fifth.html">Carpet (5x5)</a>
+                   
+                    
+                </div>                    
+                </div> 
+            
+
+                    <div class="dropdown">
+                        <button class="dropbtn">Mandelbrot 
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="mandel.html">Mandelbrot(Z^2 + C)</a>
+                            <a href="mandel_3.html">Mandelbrot(Z^3 + C)</a>
+                            <a href="mandel4.html">Mandelbrot(Z^4 + C)</a>
+                            <a href="mandel5.html">Mandelbrot(Z^5 + C)</a>
+                        </div>                    
+                        </div> 
+                    <a href="contact_us">Contact US</a>
+
+        </div>
+                <canvas id="Canvas" width="600" height = "600"></canvas>
+        
+                <script src='https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.2/dat.gui.min.js'></script>
+                <script>
+                var c = document.getElementById("Canvas")
+              var ctx = c.getContext("2d")
+              var set = {
+                "line size": 3,
+                iterations: 6
+            };
+            var tx;
+            var ty;
+            var obj;
+            var current;
+            var next;
+        
+        var gui = new dat.GUI();
+        gui.add(set, "line size", 1, 100, 1);
+        gui.add(set, "iterations", 0, 10, 1);
+        
+        for (var i in gui.__controllers) {
+            gui.__controllers[i].onChange(function() {
+                resize();
+            });
+        }
+        
+        var ruleSet = [
+            {
+                //"Koch curve"
+        vars: ["F"],
+        rules: ["F+F-F-F+F"],
+        start: "F",
+        actions: {
+            F: drawLine,
+            "+": function() {
+                ctx.rotate(-Math.PI / 2);
+            },
+            "-": function() {
+                ctx.rotate(Math.PI / 2);
+            }
+        }
+            }
+            
+            ]; 
+        
+        function setTranslate() {
+            
+            tx = 20;
+            ty = c.height - 20;
+                
+            ctx.translate(tx, ty);
+        }
+        
+        
+        function applyRules(obj) {
+            next = "";
+            for (var i = 0; i < current.length; i++) {
+                var ch = current.charAt(i);
+        
+                for (var j = 0; j < obj.vars.length; j++) {
+                    var match = false;
+        
+                    if (ch == obj.vars[j]) {
+                        next += obj.rules[j];
+                        match = true;
+                        break;
+                    }
+                }
+                if (!match) {
+                    next += ch;
+                }
+            }
+            current = next;
+        }
+        
+        
+        
+        
+            function drawLine(vertical) {
+            ctx.strokeStyle = "#45c1d2";
+            ctx.beginPath();
+            ctx.moveTo(0, 0);
+            if (vertical) {
+                ctx.lineTo(0, -set["line size"]);
+                ctx.translate(0, -set["line size"]);
+            } else {
+                ctx.lineTo(set["line size"], 0);
+                ctx.translate(set["line size"], 0);
+            }
+            ctx.stroke();
+        }
+        
+        function readRules(obj) {
+            for (var i = 0; i < current.length; i++) {
+                var func = obj.actions[current.charAt(i)];
+                if (typeof func === "function") {
+                    obj.actions[current.charAt(i)]();
+                }
+            }
+        }
+        
+        
+        function resize() {
+            c.width = window.innerWidth;
+            c.height = window.innerHeight;
+            obj = ruleSet[0];
+            setTranslate();
+            draw(obj);
+        }
+        resize();
+        window.addEventListener("resize", resize);
+        s.addEventListener("change", resize);
+        
+        
+        function draw(obj) {
+            current = obj.start;
+            for (var i = 0; i < set["iterations"]; i++) {
+                applyRules(obj);
+            }
+            readRules(obj);
+        }
+        resize();
+        
+        
+        </script>
+        </div>
+        </body> 
+        </html>      
